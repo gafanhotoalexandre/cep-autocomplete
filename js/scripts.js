@@ -7,3 +7,16 @@ const regionInput = document.querySelector('#region');
 const formInputs = document.querySelectorAll('[data-input]');
 
 const closeButton = document.querySelector('#close-message');
+
+// validate CEP input
+cepInput.addEventListener('keypress', (event) => {
+  const onlyNumbers = /[0-9]/;
+  const key = String.fromCharCode(event.keyCode);
+
+  // allow only numbers
+  if (!onlyNumbers.test(key)) {
+    event.preventDefault();
+    return;
+  }
+});
+

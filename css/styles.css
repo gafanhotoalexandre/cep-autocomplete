@@ -105,3 +105,30 @@
   border: 2px solid var(--border-color);
   color: var(--primary-color);
 }
+
+#order-form-container select {
+  padding: 1rem .75rem;
+}
+
+#order-form-container label {
+  color: var(--text-color);
+  left: 1rem;
+}
+
+#order-form-container input:disabled,
+#order-form-container select:disabled {
+  background-color: var(--secondary-bg-color);
+  color: var(--text-color);
+}
+
+#order-form-container input:focus {
+  border-color: var(--secondary-color);
+}
+
+#save-btn {
+  background-color: var(--secondary-color);
+  border: none;
+  height: 3rem;
+  width: 8rem;
+  border-radius: 1.5rem;
+}

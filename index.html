@@ -54,6 +54,36 @@
       <h2>Cadastre o seu endereço</h2>
       <p>Preencha os campos para podermos enviar os seus produtos.</p>
     </section>
+
+    <form id="address-form">
+      <div class="row mb-3">
+        <div class="form-floating">
+          <input
+            type="text" class="form-control shadow-none" id="cep" name="cep"
+            placeholder="Digite o seu CEP" minlength="8" max="8" required
+          >
+          <label for="cep">Digite o seu CEP</label>
+        </div>
+      </div>
+
+      <div class="row mb-3">
+        <div class="form-floating col-12 col-sm-6 mb-3 mb-sm-0">
+          <input
+            type="text" class="form-control shadow-none" id="address" name="address"
+            placeholder="Rua" disabled required data-input
+          >
+          <label for="address">Rua</label>
+        </div>
+
+        <div class="form-floating col-12 col-sm-6">
+          <input
+            type="text" class="form-control shadow-none" id="number" name="number"
+            placeholder="Digite o número da residência" disabled required data-input
+          >
+          <label for="number">Digite o número da residência</label>
+        </div>
+      </div>
+    </form>
   </main>
 </body>
 </html>

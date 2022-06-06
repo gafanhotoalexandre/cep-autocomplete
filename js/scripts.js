@@ -1,3 +1,5 @@
+const fadeElement = document.querySelector('#fade');
+
 const addressForm = document.querySelector('#address-form');
 const cepInput = document.querySelector('#cep');
 const addressInput = document.querySelector('#address');
@@ -28,6 +30,11 @@ cepInput.addEventListener('keyup', event => {
   if (inputValue.length === 8) getAddress(inputValue);
 });
 
+// close modal message
+closeButton.addEventListener('click', () => {
+  toggleMessage();
+});
+
 // get costumer address from api
 async function getAddress(cep) {
   toggleLoader();
@@ -43,16 +50,27 @@ async function getAddress(cep) {
   if (data.erro === 'true') {
     addressForm.reset();
     toggleLoader();
-    // show message
+    // show error message
+    toggleMessage('CEP inválido, tente novamente.');
     return;
   }
 }
 
 // show or hide loader
 function toggleLoader() {
-  const fadeElement = document.querySelector('#fade');
   const loaderElement = document.querySelector('#loader');
 
   fadeElement.classList.toggle('hide');
   loaderElement.classList.toggle('hide');
+}
+
+// show or hide message
+function toggleMessage(message = '') {
+  const messageElement = document.querySelector('#message');
+  const messageElementText = document.querySelector('#message p');
+
+  messageElementText.innerText = message;
+
+  fadeElement.classList.toggle('hide');
+  messageElement.classList.toggle('hide');
 }

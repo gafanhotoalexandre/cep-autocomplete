@@ -82,3 +82,12 @@
 .step p {
   color: var(--text-color);
 }
+
+.line {
+  border-bottom: 1px solid var(--border-color);
+  position: absolute;
+  top: 22.5px;
+  width: 90%;
+  left: 5%;
+  z-index: -1;
+}

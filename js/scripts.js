@@ -35,6 +35,20 @@ closeButton.addEventListener('click', () => {
   toggleMessage();
 });
 
+addressForm.addEventListener('submit', (event) => {
+  event.preventDefault();
+
+  toggleLoader();
+
+  setTimeout(() => {
+    toggleLoader();
+    toggleMessage('Endereço salvo com sucesso!');
+
+    addressForm.reset();
+    toggleDisabled();
+  }, 1500);
+})
+
 // get costumer address from api
 async function getAddress(cep) {
   toggleLoader();

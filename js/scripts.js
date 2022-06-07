@@ -48,12 +48,26 @@ async function getAddress(cep) {
 
   // show error and reset form
   if (data.erro === 'true') {
+    // add disabled attribute
+    if (!addressInput.hasAttribute('disabled')) toggleDisabled();
+
     addressForm.reset();
     toggleLoader();
     // show error message
     toggleMessage('CEP inválido, tente novamente.');
     return;
   }
+
+  // remove disabled
+  if(addressInput.value === '') toggleDisabled();
+
+  // fill the inputs
+  addressInput.value = data.logradouro;
+  cityInput.value = data.localidade;
+  neighborhoodInput.value = data.bairro;
+  regionInput.value = data.uf;
+
+  toggleLoader();
 }
 
 // show or hide loader
@@ -73,4 +87,13 @@ function toggleMessage(message = '') {
 
   fadeElement.classList.toggle('hide');
   messageElement.classList.toggle('hide');
+}
+
+// add or remove disabled attribute
+function toggleDisabled() {
+  if (regionInput.hasAttribute('disabled')) {
+    formInputs.forEach(input => input.removeAttribute('disabled'));
+  } else {
+    formInputs.forEach(input => input.setAttribute('disabled', 'disabled'));
+  }
 }
